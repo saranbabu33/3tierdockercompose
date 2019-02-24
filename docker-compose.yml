@@ -20,5 +20,17 @@ services:
       - ./php/:/var/www/html/
     links:
       - "db"
+  web:
+    image: nginx
+    container_name: nginx
+    depends_on:
+      - db
+      - app
+    volumes:
+      - ./nginx:/etc/nginx
     ports:
       - "80:80"
+    stdin_open: true
+    tty: true
+    links:
+      - "app"
