@@ -8,6 +8,8 @@ services:
       MYSQL_DATABASE: test
       MYSQL_USER: test
       MYSQL_PASSWORD: test
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
 
   app:
     image: bigtruedata/php-mysqli:7-apache
@@ -16,9 +18,7 @@ services:
       - db
     volumes:
       - ./php/:/var/www/html/
-    ports:
-      - "80:80"
-    stdin_open: true
-    tty: true
     links:
       - "db"
+    ports:
+      - "80:80"
