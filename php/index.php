@@ -44,7 +44,7 @@ if (mysqli_query($conn, $sql)) {
 }
 echo "\r\n\n";
 $sql = "INSERT INTO myDB.MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
+VALUES ('Saran', 'Babu', 'saran@example.com')";
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
     echo "New record created successfully. Last inserted ID is: " . $last_id . "\r\n";
